@@ -1,0 +1,50 @@
+ALGORITHM mot_dunephrase
+
+VAR //declaration et initialisation des variables
+    nombre_mots: integer <- 0;
+    nombre_voyelles:integer <- 0;
+    nombre_consonnes:integer <- 0;
+    nombre_caracteres: integer <- 0;
+    caractere: est un caractere <- "";
+    phrase: est une chaine <- "";
+  
+VAR
+
+BEGIN
+    ECRIRE(Saisir la phrase)
+    LIRE(phrase)
+
+    TANTQUE caractere <> "." DO
+    
+    DEBUT
+        caractere <- caractère courant de la phrase.
+
+        Si caractere = " "  alors
+            nombre_mots<-  nombre_mot+1
+            
+        fin
+
+        SI caractere DANS ("a", "e", "i", "o", "u", "y") //(en considérant majuscules et minuscules)  ALORS
+            nombre_voyelles:=nombre_voyelles+1
+
+        SINON SI(caractere PAS DANS (" ", ".")) alors //Il s'agit ici des voyelles'
+             nombre_consonnes <- nombre_consonnes+1
+
+             SINON  //on considere que les mots sont separés par un est espace d'une position: caractere dans (" ", ".") 
+                    nombre_mots <- nombre_mots+1
+        
+        FIN SI
+        nombre_caracteres= nombre_caracteres+1 //toutes les positions dans la phrase  sont des caracteres y compris l'espace et le point
+        SI caractere="." ALORS
+            SORTIR
+        FIN
+    
+    FIN TANTQUE
+
+        ECRIRE(Le nombre de mots est: ); Afficher(nombre_mots)
+        ECRIRE(Le nombre de voyelles est: ); Afficher(nombre_voyelles)
+        ECRIRE(Le nombre de consonnes est: ); Afficher (nombre_consonnes)
+
+END
+
+
